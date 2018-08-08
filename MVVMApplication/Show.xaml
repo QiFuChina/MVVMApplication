@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="MVVMApplication.BlankPage1"
+    x:Class="MVVMApplication.Show"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MVVMApplication"
@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <!--https://docs.microsoft.com/en-us/windows/uwp/packaging/app-capability-declarations-->
+
     </Grid>
 </Page>

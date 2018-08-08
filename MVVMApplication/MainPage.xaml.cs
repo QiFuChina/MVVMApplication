@@ -25,6 +25,27 @@ namespace MVVMApplication
         public MainPage()
         {
             this.InitializeComponent();
+            MyFrame.Navigate(typeof(Main));
+        }
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyFrame.CanGoBack)
+            {
+                MyFrame.GoBack();
+            }
+        }
+
+        private void GoForward_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyFrame.CanGoForward)
+            {
+                MyFrame.GoForward();
+            }
+        }
+
+        private void GoMain_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

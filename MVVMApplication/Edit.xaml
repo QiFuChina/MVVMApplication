@@ -11,7 +11,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -22,37 +22,39 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        
-        <RelativePanel Grid.Column="1">
+
+        <RelativePanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="EditPage" FontSize="30" RelativePanel.AlignLeftWithPanel="True" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" />
         </RelativePanel>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock Text="Title:"  Margin="20,0,0,0" />
         </StackPanel>
-        <TextBox Name="Title" Grid.Row="1" Margin="10,10,0,0"  Text="" Height="20" Width="100" />
+        <TextBox Name="Title" Grid.Row="1" Margin="10,10,0,50"  Text=""   Height="20" Width="100" />
         
         <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock Text="Weather:"  Margin="20,0,0,0" />
         </StackPanel>
-        <TextBox Name="Weather" Grid.Row="1" Grid.Column="2" Margin="10,10,0,0"  Text="" Height="20" Width="100" />
+        <TextBox Name="Weather" Grid.Row="1" Grid.Column="2" Margin="10,10,0,50"  Text="" Height="20" Width="100" />
 
         
         <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock  Text="Location:"  Margin="20,0,0,0"/>
         </StackPanel>
-        <TextBox Name="Location" Grid.Row="2" Grid.Column="2"  Margin="10,10,0,0" Text="" Height="20" Width="100"/>
+        <TextBox Name="Location" Grid.Row="2" Grid.Column="2"  Margin="10,0,0,50" Text="" Height="20" Width="100"/>
 
 
         <StackPanel Grid.Row="2"  HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock Text="Date:"  Margin="20,0,0,0"/>
         </StackPanel>
-        <CalendarDatePicker Name="Date" Grid.Row="2" Margin="20,0,0,50" Width="100"/>
+        <CalendarDatePicker Name="Date" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,50" Width="200
+"/>
 
         <StackPanel Grid.Row="3" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="120" >
             <TextBlock  Text="Events:"  Margin="20,0,0,0"/>
         </StackPanel>
-        <TextBox Name="Events" Grid.Row="3" Margin="10,10,0,0" Text="" Height="100" Width="100"/>
+        <TextBox Name="Events" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,10,0,0" Text="" Height="70" Width="200" 
+                 AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
 
         <Button Content="Submit" Click="Submit_Click" Grid.Row="4" FontSize="20" Grid.ColumnSpan="2" Margin="139,0,0,0" Height="40" />
     </Grid>

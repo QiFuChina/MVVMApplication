@@ -9,6 +9,40 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <RelativePanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="150">
+            <TextBlock Text="EventsList" FontSize="30" RelativePanel.AlignLeftWithPanel="True" VerticalAlignment="Center" HorizontalAlignment="Left" Height="40" />
+        </RelativePanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Center" Width="100" >
+            <TextBlock Text="Events:" FontSize="30" Margin="0,0,0,0"  />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" >
+            <TextBlock x:Name="ID" Text="01" FontSize="30" Margin="0,0,0,0"  />
+          
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" >
+            <TextBlock x:Name="Title" Text="Example" FontSize="30" Margin="0,0,0,0"  />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" >
+            
+
+        </StackPanel>
 
     </Grid>
 </Page>

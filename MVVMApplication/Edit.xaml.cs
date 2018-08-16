@@ -27,9 +27,14 @@ namespace MVVMApplication
             this.InitializeComponent();
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
-        {
+        //private void Submit_Click(object sender, RoutedEventArgs e)
+        //{
 
+        //}
+
+        private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            SubmitText.Text = "Success!";
         }
     }
 }

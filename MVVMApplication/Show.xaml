@@ -5,39 +5,52 @@
     xmlns:local="using:MVVMApplication"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:MVVMApplication.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.5*"/>
+            
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.7*"/>
         </Grid.ColumnDefinitions>
 
         <RelativePanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="150">
             <TextBlock Text="EventsList" FontSize="30" RelativePanel.AlignLeftWithPanel="True" VerticalAlignment="Center" HorizontalAlignment="Left" Height="40" />
         </RelativePanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Center" Width="100" >
+        <!--<StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Center" Width="100" >
             <TextBlock Text="Events:" FontSize="30" Margin="0,0,0,0"  />
-        </StackPanel>
+        </StackPanel>-->
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" >
-            <TextBlock x:Name="ID" Text="01" FontSize="30" Margin="0,0,0,0"  />
-          
-        </StackPanel>
+        <GridView ItemsSource="{x:Bind SavingofData}" Grid.Row="1"  Grid.ColumnSpan="3" IsItemClickEnabled="True" ItemClick="GridViewItemClick" >
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:SavingData">
+                    <StackPanel>
+                        <TextBlock x:Name="ID" Text="{x:Bind ID}" FontSize="30" Margin="0,0,0,0"  />
+                        <TextBlock x:Name="Title" Text="{x:Bind Title}" FontSize="30" Margin="20,0,0,0"  />
 
+                    </StackPanel>
+
+                    
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            
+        </GridView>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" >
-            <TextBlock x:Name="Title" Text="Example" FontSize="30" Margin="0,0,0,0"  />
+            <StackPanel >
+               
+            </StackPanel>
         </StackPanel>
+
 
         <StackPanel Grid.Row="2" Grid.ColumnSpan="3" >
             

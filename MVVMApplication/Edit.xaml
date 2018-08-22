@@ -47,8 +47,8 @@
         <StackPanel Grid.Row="2"  HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock Text="Date:"  Margin="20,0,0,0"/>
         </StackPanel>
-        <CalendarDatePicker x:Name="Date" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,50" Width="200
-"/>
+        <CalendarDatePicker x:Name="Date" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,50" Width="200" CalendarViewDayItemChanging="CalendarChanging" />
+        <!--<CalendarView x:Name="MyCalendarView" SelectedDatesChanged="MyCalendarViewData" SelectionMode="Single"></CalendarView>-->
 
         <StackPanel Grid.Row="3" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="120" >
             <TextBlock  Text="Events:"  Margin="20,0,0,0"/>
@@ -56,11 +56,25 @@
         <TextBox x:Name="Events" Grid.Row="3" Grid.ColumnSpan="2" Margin="10,10,0,0" Text="" Height="70" Width="200" 
                  AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
 
-        <StackPanel Grid.Row="4" Height="140" Grid.Column="1" >
-            <Button Content="Submit" Tapped="Submit_Tapped"  FontSize="20" Margin="0,10,0,0"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"  Height="40" />
-            <TextBlock x:Name="SubmitText" Text="" FontSize="20" Height="40" Grid.Column="1"
-                    Width="80" HorizontalAlignment="Center"  VerticalAlignment="Center" Margin="0,50,0,0" />
-        </StackPanel>
+        <RelativePanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" >
+            <Button Content="Submit" Tapped="Submit_Tapped"  FontSize="20" 
+                     Height="40" 
+                    RelativePanel.AlignBottomWithPanel="True">
+                <Button.Flyout>
+                    <Flyout x:Name="MyFlyout">
+                        <StackPanel Margin="20,20,20,20">
+                            <TextBlock Text="Your editing has been saved" Margin="0,0,0,0"/>
+                            <Button x:Name="FlyoutButton"
+                                    HorizontalAlignment="Center"
+                                    Content="OK"
+                                    Tapped="FlyoutButton_Tapped"/>
+                        </StackPanel>
+
+
+                    </Flyout>
+
+                </Button.Flyout>
+            </Button>
+        </RelativePanel>
     </Grid>
 </Page>

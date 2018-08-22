@@ -34,7 +34,19 @@ namespace MVVMApplication
 
         private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            SubmitText.Text = "Success!";
+            
+        }
+
+        private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MyFlyout.Hide();
+        }
+
+        private void CalendarChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
+        {
+            var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
+            var values = string.Join(", ", selectedDates);
+
         }
     }
 }

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MVVMApplication.Models;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,11 +24,13 @@ namespace MVVMApplication
     /// </summary>
     public sealed partial class Show : Page
     {
-        private List<SavingData> SavingofData;
+        //private List<SavingData> SavingofData;
+        private ObservableCollection<SavingData> SavingofData;
         public Show()
         {
             this.InitializeComponent();
-            SavingofData = SavingDataManager.GetSavingofData();
+            SavingofData = new ObservableCollection<SavingData>();
+            //SavingofData = SavingDataManager.GetSavingofData();
         }
 
         private void GridViewItemClick(object sender, ItemClickEventArgs e)

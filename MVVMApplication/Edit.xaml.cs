@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MVVMApplication.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,19 +24,20 @@ namespace MVVMApplication
     /// </summary>
     public sealed partial class Edit : Page
     {
+        private ObservableCollection<SavingData> SavingofData;
         public Edit()
         {
             this.InitializeComponent();
+            SavingofData = new ObservableCollection<SavingData>();
         }
 
-        //private void Submit_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //}
 
         private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
+            SavingofData.Add(new SavingData {  Title = Title.Text });
+            Title.Text = "";
+            Title.Focus(FocusState.Programmatic);
+
         }
 
         private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)
@@ -47,6 +50,11 @@ namespace MVVMApplication
             var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
             var values = string.Join(", ", selectedDates);
 
+        }
+
+        private void GridViewItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frame.Navigate(typeof(Detail));
         }
     }
 }

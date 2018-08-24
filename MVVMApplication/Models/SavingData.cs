@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MVVMApplication.Models
 {
-    public  class SavingData
-    {
-        public string Title { get; set; }
-    }
+    //public  class SavingData
+    //{
+    //    public string Title { get; set; }
+    //}
 
 
     //public class SavingDataManager {

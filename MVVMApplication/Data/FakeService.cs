@@ -9,12 +9,13 @@ namespace MVVMApplication.Data
 {
     public class Event
     {
-        public String Title { get; set; }
+        public string Title { get; set; }
 
     }
     public class FakeService
     {
-        public static String Name = "Fake Data Service.";
+        public static string Name = "Fake Data Service.";
+
         public static List<Event> GetEvents()
         {
             Debug.WriteLine("Get Events");
@@ -28,6 +29,7 @@ namespace MVVMApplication.Data
             Debug.WriteLine("Add new event" + Event.Title);
 
         }
+
         }
     }
 }

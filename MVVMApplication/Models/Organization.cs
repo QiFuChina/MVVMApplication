@@ -9,22 +9,37 @@ namespace MVVMApplication.Models
 {
     class Organization
     {
-        public List<Event> Event { get; set; }
-        public string Title { get; set; }
+        public List<Item> Item { get; set; }
+        public String Name { get; set; }
 
-
-        public Organization() {
-            
-            Event = FakeService.GetEvents();
+        public Organization(String databaseName) {
+            Name = databaseName;
+            Item = FakeService.GetItem();
         }
-        public void Add(Event event)
+
+        public void Add(Item item)
         {
-            if (!events.Cotains(events))
+            if (!Item.Contains(item))
             {
-                events.Add(event);
-                FakeService.Write(event);
+                Item.Add(item);
+                FakeService.Write(item);
+            }
+
+        }
+        public void Delete(Item item)
+        {
+            if (Item.Contains(item))
+            {
+                Item.Remove(item);
+                FakeService.Delete(item);
             }
         }
-        
+
+        public void Update(Item item)
+        {
+            FakeService.Write(item);
+        }
+
+
     }
 }

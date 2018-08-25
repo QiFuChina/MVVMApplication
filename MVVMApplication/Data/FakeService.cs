@@ -7,29 +7,33 @@ using System.Diagnostics;
 
 namespace MVVMApplication.Data
 {
-    public class Event
+    public class Item
     {
-        public string Title { get; set; }
+        public String Title { get; set; }
 
     }
     public class FakeService
     {
-        public static string Name = "Fake Data Service.";
+        public static String Name = "Fake Data Service.";
 
-        public static List<Event> GetEvents()
+        public static List<Item> GetItem()
         {
-            Debug.WriteLine("Get Events");
-            return new List<Event>()
+            Debug.WriteLine("Get Item");
+            return new List<Item>()
             {
-                new Event() { Title="First"}
+                new Item() { Title="First"},
+                new Item() { Title="Secend"}
             };
 
         }
-        public static void Add(Event event){
-            Debug.WriteLine("Add new event" + Event.Title);
+        public static void Write(Item item)
+        {
+            Debug.WriteLine("Add new item" + item.Title);
 
         }
-
+        public static void Delete(Item item)
+        {
+            Debug.WriteLine("DELETE person with name " + item.Title);
         }
     }
-}
+    }

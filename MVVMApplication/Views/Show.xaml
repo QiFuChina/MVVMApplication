@@ -1,19 +1,18 @@
 ﻿<Page
-    x:Class="MVVMApplication.Show"
+    x:Class="MVVMApplication.Views.Show"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MVVMApplication"
+    xmlns:local="using:MVVMApplication.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:MVVMApplication.Models"
+    xmlns:viewModels="using:MVVMApplication.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        
-        <!--<Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
-            
+
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -22,8 +21,7 @@
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.7*"/>
-        </Grid.ColumnDefinitions>-->
-
+        </Grid.ColumnDefinitions>
         <!--<RelativePanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="150">
             <TextBlock Text="EventsList" FontSize="30" RelativePanel.AlignLeftWithPanel="True" VerticalAlignment="Center" HorizontalAlignment="Left" Height="40" />
         </RelativePanel>-->
@@ -32,39 +30,29 @@
             <TextBlock Text="Events:" FontSize="30" Margin="0,0,0,0"  />
         </StackPanel>
         
-        Grid.Row="1"  Grid.ColumnSpan="3" 
+           Grid.ColumnSpan="3" 
         -->
+        <StackPanel Grid.Row="1">
+            <StackPanel>
+                <ListView x:Name="ShowList" ItemsSource="{x:Bind Organization.Item,Mode=OneWay}" 
+                          SelectedIndex="{x:Bind Organization.SelectedIndex, Mode=TwoWay}"
+                  IsItemClickEnabled="True" ItemClick="GridViewItemClick" >
+                    <ListView.ItemTemplate>
 
-        <GridView ItemsSource="{x:Bind SavingofData}" IsItemClickEnabled="True" ItemClick="GridViewItemClick" >
-            <GridView.ItemTemplate>
-               
-                <DataTemplate x:DataType="data:SavingData">
-                    <!--<local:ShowEvents HorizontalAlignment="Stretch"
+                        <DataTemplate x:DataType="viewModels:ItemViewModel">
+                            <!--<local:ShowEvents HorizontalAlignment="Stretch"
                                       VerticalAlignment="Stretch"
                                       />-->
-                    <StackPanel >
-                        <TextBlock x:Name="Title" Text="{x:Bind Title}" FontSize="30" Margin="0,0,0,0"  />
-                    </StackPanel>
+                            <StackPanel >
+                                <TextBlock x:Name="Title" Text="{x:Bind Title}" FontSize="30" Margin="0,0,0,0"  />
+                            </StackPanel>
+                        </DataTemplate>
 
+                    </ListView.ItemTemplate>
 
-
-                </DataTemplate>
-                
-            </GridView.ItemTemplate>
-            
-        </GridView>
-
-        <!--<StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" >
-            <StackPanel >
-               
+                </ListView>
             </StackPanel>
+
         </StackPanel>
-
-
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" >
-            
-
-        </StackPanel>-->
-
     </Grid>
 </Page>

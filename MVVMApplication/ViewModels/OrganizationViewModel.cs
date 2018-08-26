@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using MVVMApplication.Models;
-
 
 namespace MVVMApplication.ViewModels
 {
@@ -25,6 +24,10 @@ namespace MVVMApplication.ViewModels
                 ni.PropertyChanged += Item_OnNotifyPropertyChanged;
                 _Item.Add(ni);
             }
+        }
+
+        public OrganizationViewModel()
+        {
         }
 
         ObservableCollection<ItemViewModel> _Item = new ObservableCollection<ItemViewModel>();

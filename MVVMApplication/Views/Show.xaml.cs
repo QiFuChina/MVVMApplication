@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVVMApplication.Models;
+using MVVMApplication.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,25 +17,23 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace MVVMApplication
+namespace MVVMApplication.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Main : Page
+    public sealed partial class Show : Page
     {
-        public Main()
+        public Show()
         {
             this.InitializeComponent();
+            Organization = new OrganizationViewModel();
         }
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Edit));
-        }
+        public OrganizationViewModel Organization { get; set; }
 
-        private void Show_Click(object sender, RoutedEventArgs e)
+        private void GridViewItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof(Show));
+            Frame.Navigate(typeof(Detail));
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="MVVMApplication.Edit"
+    x:Class="MVVMApplication.Views.Edit"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MVVMApplication"
+    xmlns:local="using:MVVMApplication.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:MVVMApplication.Models"
@@ -15,12 +15,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-           
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            
+
         </Grid.ColumnDefinitions>
 
 
@@ -62,7 +62,7 @@
             <TextBlock  Text="Preview:"  Margin="20,0,0,0"/>
         </StackPanel>
 
-        <GridView  Grid.Row="2" Grid.Column="2" Margin="20" ItemsSource="{x:Bind SavingofData}"
+        <!--<GridView  Grid.Row="2" Grid.Column="2" Margin="20" ItemsSource="{x:Bind SavingofData}"
                    IsItemClickEnabled="True" ItemClick="GridViewItemClick">
             <GridView.ItemTemplate>
 
@@ -71,9 +71,9 @@
                 </DataTemplate>
 
             </GridView.ItemTemplate>
-        </GridView>
-        
-        
+        </GridView>-->
+
+
 
         <RelativePanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" >
             <Button Content="Submit" Tapped="Submit_Tapped"  FontSize="20" 

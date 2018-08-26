@@ -13,39 +13,33 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace MVVMApplication
+namespace MVVMApplication.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Edit : Page
     {
-        public MainPage()
+        public Edit()
         {
             this.InitializeComponent();
-            
-        }
-        private void GoBack_Click(object sender, RoutedEventArgs e)
-        {
-            if (MyFrame.CanGoBack)
-            {
-                MyFrame.GoBack();
-            }
         }
 
-        private void GoForward_Click(object sender, RoutedEventArgs e)
+        private void CalendarChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
         {
-            if (MyFrame.CanGoForward)
-            {
-                MyFrame.GoForward();
-            }
+
         }
 
-        private void GoMain_Click(object sender, RoutedEventArgs e)
+        private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+
+        }
+
+        private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MyFlyout.Hide();
         }
     }
 }

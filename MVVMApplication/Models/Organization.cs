@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MVVMApplication.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MVVMApplication.Data;
 
 namespace MVVMApplication.Models
 {
@@ -12,7 +12,8 @@ namespace MVVMApplication.Models
         public List<Item> Item { get; set; }
         public String Name { get; set; }
 
-        public Organization(String databaseName) {
+        public Organization(String databaseName)
+        {
             Name = databaseName;
             Item = FakeService.GetItem();
         }

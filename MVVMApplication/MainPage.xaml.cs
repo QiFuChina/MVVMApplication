@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMApplication.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace MVVMApplication
         public MainPage()
         {
             this.InitializeComponent();
-            
+            MyFrame.Navigate(typeof(Main));
         }
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {

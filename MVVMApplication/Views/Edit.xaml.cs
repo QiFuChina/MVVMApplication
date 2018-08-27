@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MVVMApplication.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -34,7 +36,9 @@ namespace MVVMApplication.Views
 
         private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            string titleText = Title.Text;
+            var addItem = new Item() { Title=titleText};
+            Debug.WriteLine("Get Item on the Edit page");
         }
 
         private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMApplication.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,23 +8,18 @@ using System.Threading.Tasks;
 
 namespace MVVMApplication.Data
 {
-    public class Item
+    
+    class FakeService
     {
-        public String Title { get; set; }
-
-    }
-    public class FakeService
-    {
+        private static List<Item> ItemList;
         public static String Name = "Fake Data Service.";
 
         public static List<Item> GetItem()
         {
             Debug.WriteLine("Get Item");
-            return new List<Item>()
-            {
-                new Item() { Title="First"},
-                new Item() { Title="Secend"}
-            };
+            ItemList = Globals.Items;
+            Debug.WriteLine(ItemList.ToString());
+            return ItemList;
 
         }
         public static void Write(Item item)

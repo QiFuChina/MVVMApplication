@@ -26,5 +26,15 @@ namespace MVVMApplication.Views
         {
             this.InitializeComponent();
         }
+
+        private void Edit_tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Edit));
+        }
+
+        private void Show_tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Show));
+        }
     }
 }

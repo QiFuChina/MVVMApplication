@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MVVMApplication.Data;
+using MVVMApplication.Models;
 
 namespace MVVMApplication.ViewModels
 {
-    public class ItemViewModel : NotificationBase<Item>
+    class ItemViewModel : NotificationBase<Item>
     {
         public ItemViewModel(Item item = null) : base(item) { }
+
         public String Title
         {
             get { return This.Title; }

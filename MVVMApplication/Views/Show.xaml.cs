@@ -29,7 +29,7 @@ namespace MVVMApplication.Views
             this.InitializeComponent();
             Organization = new OrganizationViewModel();
         }
-        public OrganizationViewModel Organization { get; set; }
+        OrganizationViewModel Organization { get; set; }
 
         private void GridViewItemClick(object sender, ItemClickEventArgs e)
         {

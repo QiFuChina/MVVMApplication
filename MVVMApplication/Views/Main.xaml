@@ -9,6 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--<RelativePanel >
+            <TextBlock Text="Main" FontSize="30" RelativePanel.AlignRightWithPanel="True"  Height="40" />
+        </RelativePanel>-->
+        <RelativePanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="MainPage" FontSize="20" RelativePanel.AlignLeftWithPanel="True"  Height="40" />
+        </RelativePanel>
+        <RelativePanel Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button x:Name="Edit" Content="Edit" Tapped="Edit_tapped" Width="100" />
+        </RelativePanel>
+
+        <RelativePanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button x:Name="Show" Content="Show" Tapped="Show_tapped"  Width="100" Height="40" />
+        </RelativePanel>
+
 
     </Grid>
 </Page>

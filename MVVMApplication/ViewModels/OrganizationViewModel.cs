@@ -9,16 +9,18 @@ using MVVMApplication.Models;
 
 namespace MVVMApplication.ViewModels
 {
-    public class OrganizationViewModel : NotificationBase
+    class OrganizationViewModel : NotificationBase
     {
         Organization organization;
+        ObservableCollection<ItemViewModel> _Item = new ObservableCollection<ItemViewModel>();
+        int _SelectedIndex;
 
-        public OrganizationViewModel(String name)
+        public OrganizationViewModel()
         {
-            organization = new Organization(name);
+            organization = new Organization();
             _SelectedIndex = -1;
             // Load the database
-            foreach (var item in organization.Item)
+            foreach (var item in organization.Items)
             {
                 var ni = new ItemViewModel(item);
                 ni.PropertyChanged += Item_OnNotifyPropertyChanged;
@@ -26,11 +28,8 @@ namespace MVVMApplication.ViewModels
             }
         }
 
-        public OrganizationViewModel()
-        {
-        }
+    
 
-        ObservableCollection<ItemViewModel> _Item = new ObservableCollection<ItemViewModel>();
         public ObservableCollection<ItemViewModel> Item
         {
             get { return _Item; }
@@ -43,17 +42,14 @@ namespace MVVMApplication.ViewModels
             get { return organization.Name; }
         }
 
-        int _SelectedIndex;
+
         public int SelectedIndex
         {
             get { return _SelectedIndex; }
             set { if (SetProperty(ref _SelectedIndex, value)) { RaisePropertyChanged(nameof(SelectedItem)); } }
         }
 
-        public ItemViewModel SelectedItem
-        {
-            get { return (_SelectedIndex >= 0) ? _Item[_SelectedIndex] : null; }
-        }
+        public ItemViewModel SelectedItem => (_SelectedIndex >= 0) ? _Item[_SelectedIndex] : null;
 
         public void Add()
         {

@@ -6,57 +6,83 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:MVVMApplication.Models"
+    xmlns:viewModels="using:ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
 
-
-        <RelativePanel Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="4">
+            
+        </StackPanel>
+        <RelativePanel Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="EditPage" FontSize="30" RelativePanel.AlignLeftWithPanel="True" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" />
         </RelativePanel>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
-            <TextBlock Text="Title:"  Margin="20,0,0,0" />
-        </StackPanel>
-        <TextBox x:Name="Title" Grid.Row="1" Margin="0,0,45,75"  Text=""   Height="20" Width="100" />
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="1" HorizontalAlignment="Left" Height="50" 
+                         VerticalAlignment="Top" Width="500" Orientation="Horizontal" >
+                <TextBlock Text="Title:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="23,0,0,0" />
+                <TextBox x:Name="Title" Grid.Row="0" Text="" Margin="36,0,0,0"
+                         VerticalAlignment="Center" HorizontalAlignment="Center"  Height="20" Width="100" />
+            </StackPanel>
+            
+            
+            <StackPanel Grid.Row="2" Orientation="Horizontal"
+                        HorizontalAlignment="Left" Height="70"  VerticalAlignment="Top" Width="300" >
+                <TextBlock  Text="Location:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70"  Margin="20,0,0,0" />
+                <TextBox x:Name="Location" Grid.Row="2"  Text="" Height="30" Width="100" Margin="0,0,0,0"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Height="50"
+                        VerticalAlignment="Center" Width="250" >
+                <TextBlock Text="Date:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                <CalendarDatePicker x:Name="Date" Grid.ColumnSpan="2"  Width="130" CalendarViewDayItemChanging="CalendarChanging"
+                            Margin="20,0,0,0" VerticalAlignment="Center" />
+            </StackPanel>
 
+            <StackPanel Grid.Row="4" HorizontalAlignment="Center" Height="200"  VerticalAlignment="Top" Width="200" Orientation="Vertical" >
+                <TextBlock  Text="Events:" HorizontalAlignment="Center" />
+                <TextBox x:Name="Events"   HorizontalAlignment="Center" Text="" Height="70" Width="150" 
+                 AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+            </StackPanel>
+                   
+        
+            
+        </Grid>
+     
         <!--<StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
             <TextBlock Text="Weather:"  Margin="20,0,0,0" />
         </StackPanel>
         <TextBox x:Name="Weather" Grid.Row="1" Grid.Column="2" Margin="10,10,0,50"  Text="" Height="20" Width="100" />-->
+        
 
 
-        <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="100" >
-            <TextBlock  Text="Location:"  Margin="20,0,0,0"/>
-        </StackPanel>
-        <TextBox x:Name="Location" Grid.Row="1" Grid.Column="2"  Margin="15,0,45,75" Text="" Height="20" Width="100"/>
-
-
-        <StackPanel Grid.Row="1"  HorizontalAlignment="Left" Height="20"  VerticalAlignment="Center" Width="100" >
-            <TextBlock Text="Date:"  Margin="20,0,0,0"/>
-        </StackPanel>
-        <CalendarDatePicker x:Name="Date" Grid.Row="1" Grid.ColumnSpan="2" Margin="15,100,0,0" Width="200" CalendarViewDayItemChanging="CalendarChanging"
-                            HorizontalAlignment="Left" VerticalAlignment="Center" />
+        
         <!--<CalendarView x:Name="MyCalendarView" SelectedDatesChanged="MyCalendarViewData" SelectionMode="Single"></CalendarView>-->
 
-        <StackPanel Grid.Row="2" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Top" Width="120" >
-            <TextBlock  Text="Events:"  Margin="20,0,0,0"/>
-        </StackPanel>
-        <TextBox x:Name="Events" Grid.Row="2" Margin="0,0,0,0" Text="" Height="70" Width="150" 
-                 AcceptsReturn="True" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        
 
         <StackPanel Grid.Row="2" Grid.Column="2"  Height="20"  Width="120" HorizontalAlignment="Left"  VerticalAlignment="Top" >
             <TextBlock  Text="Preview:"  Margin="20,0,0,0"/>
@@ -75,7 +101,7 @@
 
 
 
-        <RelativePanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"  VerticalAlignment="Center" >
+        <RelativePanel Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center"  VerticalAlignment="Center" >
             <Button Content="Submit" Tapped="Submit_Tapped"  FontSize="20" 
                      Height="40" 
                     RelativePanel.AlignBottomWithPanel="True">

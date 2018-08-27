@@ -37,8 +37,8 @@ namespace MVVMApplication.Views
         private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
             string titleText = Title.Text;
-            var addItem = new Item() { Title=titleText};
-            Debug.WriteLine("Get Item on the Edit page");
+            var Item = new Item() { Title=titleText};
+            Debug.WriteLine("Get Item on the Edit page"+" "+ Item.ToString());
         }
 
         private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)

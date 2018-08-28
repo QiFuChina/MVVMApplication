@@ -10,29 +10,23 @@ namespace MVVMApplication.Models
     {
         public string Title { get; set; }
 
-        //public string detail { get; set; }
+        public string Location { get; set; }
 
-        //public string operate { get; set; }
+        public string Date { get; set; }
 
-        //public double value { get; set; }
+        public string Events { get; set; }
 
-        //public string currency { get; set; }
-
-        //public string location { get; set; }
-
-        //public string date { get; set; }
+     
 
         public Item() { }
 
-        public Item(string Title)
+        public Item(string Title, string Location, string Date, string Events)
         {
             this.Title = Title;
-            //this.detail = detail;
-            //this.operate = operate;
-            //this.value = value;
-            //this.currency = currency;
-            //this.location = location;
-            //this.date = date;
+            this.Location = Location;
+            this.Date = Date;
+            this.Events = Events;
+          
         }
     }
 }

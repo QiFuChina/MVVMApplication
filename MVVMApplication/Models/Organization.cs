@@ -9,13 +9,13 @@ namespace MVVMApplication.Models
 {
     class Organization
     {
-        public List<Item> Items { get; set; }
+        public List<Item> Item { get; set; }
         public String Name { get; set; }
 
         public Organization(String databaseName)
         {
             Name = databaseName;
-            Items = FakeService.GetItem();
+            Item = FakeService.GetItem();
         }
 
         public Organization()
@@ -24,18 +24,18 @@ namespace MVVMApplication.Models
 
         public void Add(Item item)
         {
-            if (!Items.Contains(item))
+            if (!Item.Contains(item))
             {
-                Items.Add(item);
+                Item.Add(item);
                 FakeService.Write(item);
             }
 
         }
         public void Delete(Item item)
         {
-            if (Items.Contains(item))
+            if (Item.Contains(item))
             {
-                Items.Remove(item);
+                Item.Remove(item);
                 FakeService.Delete(item);
             }
         }

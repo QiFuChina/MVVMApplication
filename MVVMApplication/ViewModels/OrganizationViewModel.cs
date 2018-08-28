@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using MVVMApplication.Models;
+using MVVMApplication.Views;
 
 namespace MVVMApplication.ViewModels
 {
@@ -20,11 +21,11 @@ namespace MVVMApplication.ViewModels
             organization = new Organization();
             _SelectedIndex = -1;
             // Load the database
-            foreach (var item in organization.Items)
+            foreach (var item in organization.Item)
             {
-                var ni = new ItemViewModel(item);
-                ni.PropertyChanged += Item_OnNotifyPropertyChanged;
-                _Item.Add(ni);
+                var np = new ItemViewModel(item);
+                np.PropertyChanged += Item_OnNotifyPropertyChanged;
+                _Item.Add(np);
             }
         }
 

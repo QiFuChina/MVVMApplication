@@ -1,4 +1,5 @@
-﻿using MVVMApplication.Models;
+﻿using MVVMApplication.Data;
+using MVVMApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,21 +30,33 @@ namespace MVVMApplication.Views
             this.InitializeComponent();
         }
 
-        private void CalendarChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
-        {
-
-        }
+        //private void CalendarChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
+        //{
+        //    //string date = CalendarDatePicker.Date.Value.Day.ToString() + "/" +
+        //    //                  CalendarDatePicker.Date.Value.Month.ToString() + "/" +
+        //    //                  CalendarDatePicker.Date.Value.Year.ToString();
+        //}
 
         private void Submit_Tapped(object sender, TappedRoutedEventArgs e)
         {
             string titleText = Title.Text;
-            var Item = new Item() { Title=titleText};
-            Debug.WriteLine("Get Item on the Edit page"+" "+ Item.ToString());
+            string localationText = Location.Text;
+            string eventsText = Events.Text;
+            string date = CalendarDateValue.Date.Value.Day.ToString() + "/" +
+                   CalendarDateValue.Date.Value.Month.ToString() + "/" +
+                   CalendarDateValue.Date.Value.Year.ToString();
+            var Item = new Item() { Title = titleText, Location = localationText, Events = eventsText,Date=date };
+            Debug.WriteLine("Get Item on the Edit page:" + " " + titleText + " " + localationText + " " + eventsText + " " + date);
         }
 
         private void FlyoutButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             MyFlyout.Hide();
+        }
+
+        private void View_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Show));
         }
     }
 }

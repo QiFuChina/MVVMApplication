@@ -2,11 +2,8 @@
     x:Class="MVVMApplication.Views.Edit"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MVVMApplication.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:MVVMApplication.Models"
-    xmlns:viewModels="using:ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -41,7 +38,7 @@
                 
             </Grid.RowDefinitions>
             <StackPanel  Grid.Row="1" HorizontalAlignment="Left" Height="50" 
-                         VerticalAlignment="Top" Width="500" Orientation="Horizontal" >
+                         VerticalAlignment="Top" Width="200" Orientation="Horizontal" >
                 <TextBlock Text="Title:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="23,0,0,0" />
                 <TextBox x:Name="Title" Grid.Row="0" Text="" Margin="36,0,0,0"
                          VerticalAlignment="Center" HorizontalAlignment="Center"  Height="20" Width="100" />
@@ -49,16 +46,16 @@
             
             
             <StackPanel Grid.Row="2" Orientation="Horizontal"
-                        HorizontalAlignment="Left" Height="70"  VerticalAlignment="Top" Width="300" >
+                        HorizontalAlignment="Left" Height="70"  VerticalAlignment="Top" Width="200" >
                 <TextBlock  Text="Location:" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70"  Margin="20,0,0,0" />
                 <TextBox x:Name="Location" Grid.Row="2"  Text="" Height="30" Width="100" Margin="0,0,0,0"
                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
             
             <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Height="50"
-                        VerticalAlignment="Center" Width="250" >
+                        VerticalAlignment="Center" Width="210" >
                 <TextBlock Text="Date:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                <CalendarDatePicker x:Name="Date" Grid.ColumnSpan="2"  Width="130" CalendarViewDayItemChanging="CalendarChanging"
+                <CalendarDatePicker x:Name="CalendarDateValue" Grid.ColumnSpan="2"  Width="130" 
                             Margin="20,0,0,0" VerticalAlignment="Center" />
             </StackPanel>
 
@@ -84,10 +81,7 @@
 
         
 
-        <StackPanel Grid.Row="2" Grid.Column="2"  Height="20"  Width="120" HorizontalAlignment="Left"  VerticalAlignment="Top" >
-            <TextBlock  Text="Preview:"  Margin="20,0,0,0"/>
-        </StackPanel>
-
+        
         <!--<GridView  Grid.Row="2" Grid.Column="2" Margin="20" ItemsSource="{x:Bind SavingofData}"
                    IsItemClickEnabled="True" ItemClick="GridViewItemClick">
             <GridView.ItemTemplate>
@@ -114,12 +108,13 @@
                                     Content="OK"
                                     Tapped="FlyoutButton_Tapped"/>
                         </StackPanel>
-
-
                     </Flyout>
-
                 </Button.Flyout>
             </Button>
         </RelativePanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30">
+
+            <TextBlock  Text="Preview:" Tapped="View_Tapped" />
+        </StackPanel>
     </Grid>
 </Page>

@@ -11,15 +11,21 @@ namespace MVVMApplication.Data
     
     class FakeService
     {
-        private static List<Item> Item;
+        //private static List<Item> Item;
         public static String Name = "Fake Data Service.";
 
         public static List<Item> GetItem()
         {
             Debug.WriteLine("Get Item");
             //Item = Globals.Items;
-            Debug.WriteLine(Item.ToString());
-            return Item;
+            //Debug.WriteLine(ToString());
+            return new List<Item>() {
+                new Item() { Title="Chris Cole" },
+                new Item() { Title="Stf Ed" },
+                new Item() { Title="Gd Bsgr" }
+
+            };
+
 
         }
         public static void Write(Item item)

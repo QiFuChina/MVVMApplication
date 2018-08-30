@@ -1,7 +1,9 @@
-﻿using MVVMApplication.Models;
+﻿using MVVMApplication.Data;
+using MVVMApplication.Models;
 using MVVMApplication.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,10 +26,12 @@ namespace MVVMApplication.Views
     /// </summary>
     public sealed partial class Show : Page
     {
+        private ObservableCollection<Item> Item;
         public Show()
         {
             this.InitializeComponent();
             Organization = new OrganizationViewModel();
+            Item = new ObservableCollection<Item>();
         }
         OrganizationViewModel Organization { get; set; }
 

@@ -16,7 +16,7 @@ namespace MVVMApplication.Models
 
         public string Events { get; set; }
 
-     
+
 
         public Item() { }
 
@@ -26,7 +26,9 @@ namespace MVVMApplication.Models
             this.Location = Location;
             this.Date = Date;
             this.Events = Events;
-          
+
         }
+
+
     }
 }

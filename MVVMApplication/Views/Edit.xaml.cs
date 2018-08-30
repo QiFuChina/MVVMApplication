@@ -2,6 +2,7 @@
 using MVVMApplication.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -25,9 +26,11 @@ namespace MVVMApplication.Views
     /// </summary>
     public sealed partial class Edit : Page
     {
+        private ObservableCollection<Item> Item;
         public Edit()
         {
             this.InitializeComponent();
+            Item = new ObservableCollection<Item>();
         }
 
         //private void CalendarChanging(CalendarView sender, CalendarViewDayItemChangingEventArgs e)
@@ -45,7 +48,7 @@ namespace MVVMApplication.Views
             string date = CalendarDateValue.Date.Value.Day.ToString() + "/" +
                    CalendarDateValue.Date.Value.Month.ToString() + "/" +
                    CalendarDateValue.Date.Value.Year.ToString();
-            var Item = new Item() { Title = titleText, Location = localationText, Events = eventsText,Date=date };
+            Item.Add(new Item{ Title = titleText, Location = localationText, Events = eventsText,Date=date });
             Debug.WriteLine("Get Item on the Edit page:" + " " + titleText + " " + localationText + " " + eventsText + " " + date);
         }
 
@@ -56,7 +59,7 @@ namespace MVVMApplication.Views
 
         private void View_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Show));
+            Frame.Navigate(typeof(Detail));
         }
     }
 }

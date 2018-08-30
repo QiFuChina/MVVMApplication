@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVVMApplication.Models;
+using MVVMApplication.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,8 @@ namespace MVVMApplication.Views
         public Detail()
         {
             this.InitializeComponent();
+            Organization = new OrganizationViewModel();
         }
+        OrganizationViewModel Organization { get; set; }
     }
 }

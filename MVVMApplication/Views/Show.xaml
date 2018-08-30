@@ -11,10 +11,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-
+            <RowDefinition Height="0.2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
@@ -32,23 +31,22 @@
            Grid.ColumnSpan="3" 
         -->
         <!--SelectedIndex="{x:Bind Organization.SelectedIndex, Mode=TwoWay}"-->
-
+           
         <StackPanel Grid.Column="1" Grid.Row="1" Visibility="Visible" Orientation="Vertical">
             <StackPanel>
-                <GridView x:Name="ShowList" ItemsSource="{x:Bind Organization.Item,Mode=OneWay}"                           
-                  IsItemClickEnabled="True" ItemClick="GridViewItemClick" >
-                    <GridView.ItemsPanel>
+                <GridView x:Name="ShowList" ItemsSource="{x:Bind Organization.Item,Mode=OneWay}" 
+                          SelectedIndex="{x:Bind Organization.SelectedIndex, Mode=TwoWay}"
+                          IsItemClickEnabled="True" ItemClick="GridViewItemClick" >
+                    <!--<GridView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid Orientation="Vertical"/>
-                        </ItemsPanelTemplate>
-                    </GridView.ItemsPanel>
+                        </ItemsPanelTemplate>                        
+                    </GridView.ItemsPanel>-->
+                    
                     <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="viewModels:ItemViewModel">
-                            <!--<local:ShowEvents HorizontalAlignment="Stretch"
-                                      VerticalAlignment="Stretch"
-                                      />-->
-                            <Grid>
-                                <Grid.RowDefinitions>
+                        <DataTemplate x:DataType="viewModels:ItemViewModel">                     
+                            <StackPanel>
+                                <!--<Grid.RowDefinitions>
                                     <RowDefinition Height="1"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
@@ -59,13 +57,14 @@
                                     <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="50"/>
-                                </Grid.ColumnDefinitions>
+                                </Grid.ColumnDefinitions>-->
 
-                                <TextBlock  x:Name="Title" Grid.Column="0" Grid.Row="1" Text="{x:Bind Title ,Mode=OneWay}"
-                                               FontSize="30" Margin="0,0,0,0"  />
-                                <TextBlock  Grid.Column="0" Grid.Row="1" Text="gsgsw"
-                                               FontSize="30" Margin="0,0,0,0"  />
-                            </Grid>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock  x:Name="Title" Grid.Column="0" Grid.Row="1" Text="{x:Bind Title,Mode=OneWay}"
+                                               FontSize="30" Margin="0,0,0,0"  />                                    
+                                </StackPanel>
+                                
+                            </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>

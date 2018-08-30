@@ -13,23 +13,24 @@ namespace MVVMApplication.ViewModels
     class OrganizationViewModel : NotificationBase
     {
         Organization organization;
-        ObservableCollection<ItemViewModel> _Item = new ObservableCollection<ItemViewModel>();
-        int _SelectedIndex;
+        
+      
 
         public OrganizationViewModel()
         {
             organization = new Organization();
             _SelectedIndex = -1;
             // Load the database
-            foreach (var item in organization.Item)
-            {
-                var np = new ItemViewModel(item);
-                np.PropertyChanged += Item_OnNotifyPropertyChanged;
-                _Item.Add(np);
-            }
+            //foreach (var item in organization.Item)
+            //{
+            //    var np = new ItemViewModel(item);
+            //    np.PropertyChanged += Item_OnNotifyPropertyChanged;
+            //    _Item.Add(np);
+            //}
         }
 
-    
+
+        ObservableCollection<ItemViewModel> _Item = new ObservableCollection<ItemViewModel>();
 
         public ObservableCollection<ItemViewModel> Item
         {
@@ -37,12 +38,13 @@ namespace MVVMApplication.ViewModels
             set { SetProperty(ref _Item, value); }
         }
 
-        String _Name;
+        
         public String Name
         {
             get { return organization.Name; }
         }
 
+        int _SelectedIndex;
 
         public int SelectedIndex
         {

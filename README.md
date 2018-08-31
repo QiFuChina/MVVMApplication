@@ -18,4 +18,4 @@ This repository includes two parts:
   * this app is using **MVVM** design model
   * this app allow user to add/delete/ items by sending request to interact with fakesevers
   
-#### For more details, see the design.doc
+#### For more details, see the MVVM.pdf
